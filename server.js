@@ -3,7 +3,7 @@ const cors = require('cors');
 const { Pool } = require('pg');
 const dotenv = require('dotenv');
 const initDatabase = require('./utils/initDatabase');
-const PORT = process.env.PORT || 6004
+const port = process.env.PORT || 6004
 dotenv.config();
 
 const app = express();
@@ -47,8 +47,8 @@ async function startServer() {
         await initDatabase(forceSync);
 
         // Start server
-        app.listen(PORT, () => {
-            console.log(`Server running on port ${PORT}`);
+        app.listen(port, () => {
+            console.log(`Server running on port ${port}`);
         });
     } catch (error) {
         console.error('Server startup error:', error);
